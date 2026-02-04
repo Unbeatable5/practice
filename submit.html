@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CivicSense Complaint</title>
+    <link rel="stylesheet" href="submit.css" />
+</head>
+<body>
+
+<div class="container">
+    <h2>Submit a Complaint</h2>
+
+    <label>Complaint Title (optional)</label>
+    <input type="text" placeholder="e.g. Water Issue" />
+
+    <label>Complaint Description *</label>
+    <textarea id="description" placeholder="Describe your issue..."></textarea>
+
+    <button id="continueBtn" class="primary-btn">Continue</button>
+
+    <!-- AI Status Messages -->
+    <!-- AI Thinking Message -->
+<div id="aiThinking" class="ai-thinking hidden">
+    <img src="WhatsApp Image 2026-02-05 at 10.02.58 AM.jpeg" class="ai-icon" alt="AI">
+    <span id="aiText">CivicSense AI Checking the Text..</span>
+    <!-- <div class="loader"></div> -->
+</div>
+
+
+    <!-- Hidden Fields (Shown After AI Finishes) -->
+    <div id="aiResults" class="hidden">
+        <label>Area *</label>
+        <input type="text" placeholder="e.g. 2-2 Street, Chikodi" />
+
+        <label>Category</label>
+        <input type="text" id="category" />
+
+        <label>Priority</label>
+        <input type="text" id="priority" />
+        
+        <form action="track.html">
+        <button class="submit-btn">Submit Complaint</button>
+        </form>
+    </div>
+    <!-- <form action="track.html">
+    <button type="submit" class="submit-btn">Submit Complaint</button>
+</form> -->
+
+</div>
+
+<script src="submit.js"></script>
+</body>
+</html>

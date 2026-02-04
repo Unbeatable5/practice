@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Track Complaint Status</title>
+<style>
+    * {
+        box-sizing: border-box;
+        font-family: "Segoe UI", sans-serif;
+    }
+
+    body {
+        margin: 0;
+        background: #ffffff;
+        color: #333;
+    }
+
+    /* NAVBAR */
+    .navbar {
+        display: flex;
+        align-items: center;
+        padding: 15px 50px;
+        gap: 30px;
+        border-bottom: 1px solid #eee;
+    }
+
+    .logo {
+        font-weight: 700;
+        font-size: 20px;
+        color: #1f4fd8;
+    }
+
+    .nav-links a {
+        margin-right: 20px;
+        text-decoration: none;
+        color: #444;
+        font-weight: 500;
+    }
+
+    .nav-links a.active {
+        color: #2aa84a;
+        font-weight: 600;
+    }
+
+    /* MAIN */
+    .container {
+        max-width: 1000px;
+        margin: 60px auto;
+        text-align: center;
+    }
+
+    h1 {
+        margin-bottom: 30px;
+    }
+
+    .search-box {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 50px;
+    }
+
+    .search-box input {
+        width: 280px;
+        padding: 12px 15px;
+        border-radius: 8px;
+        border: none;
+        background: #f2f2f2;
+        outline: none;
+        font-size: 14px;
+    }
+
+    .search-box button {
+        padding: 12px 30px;
+        border-radius: 8px;
+        border: none;
+        background: #1f3c88;
+        color: #fff;
+        font-weight: 600;
+        cursor: pointer;
+    }
+
+    /* TABLE */
+    .section-title {
+        text-align: left;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+
+    .table-box {
+        background: #f5f5f5;
+        border-radius: 10px;
+        padding: 20px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 14px;
+    }
+
+    th {
+        text-align: left;
+        padding-bottom: 10px;
+        color: #555;
+    }
+
+    td {
+        padding: 8px 0;
+    }
+
+    .status-pending {
+        color: orange;
+        font-weight: 600;
+    }
+
+    .status-resolved {
+        color: green;
+        font-weight: 600;
+    }
+
+    .status-delayed {
+        color: red;
+        font-weight: 600;
+    }
+
+    /* BUTTON */
+    .back-btn {
+        margin-top: 40px;
+    }
+
+    .back-btn button {
+        background: #1fa84a;
+        color: white;
+        border: none;
+        padding: 12px 40px;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+    }
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <div class="logo">CivicSense</div>
+    <div class="nav-links">
+        <a href="#">Home</a>
+        <a href="#">How it works</a>
+        <a href="#" class="active">Track Complaints</a>
+    </div>
+</div>
+
+<!-- CONTENT -->
+<div class="container">
+    <h1>Track Complaint Status</h1>
+
+    <div class="search-box">
+        <input type="text" id="complaintId" placeholder="Complaint ID">
+        <button onclick="checkStatus()">Check</button>
+    </div>
+
+    <div id="result" style="display:none;">
+        <div class="section-title">Water Issue</div>
+
+        <div class="table-box">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Complaint ID</th>
+                        <th>Status</th>
+                        <th>Department</th>
+                        <th>Deadline</th>
+                        <th>Remaining Days</th>
+                        <th>Date</th>
+                        <th>Delayed</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td id="cid"></td>
+                        <td id="status"></td>
+                        <td>Water Issues</td>
+                        <td>20 Aug 2026</td>
+                        <td>5</td>
+                        <td>11 Aug 2026</td>
+                        <td id="delay"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="back-btn">
+        <button onclick="goHome()">Back to Home</button>
+    </div>
+</div>
+
+<script>
+function checkStatus() {
+    const id = document.getElementById("complaintId").value.trim();
+
+    if (id === "") {
+        alert("Please enter Complaint ID");
+        return;
+    }
+
+    document.getElementById("result").style.display = "block";
+    document.getElementById("cid").innerText = id;
+
+    // Demo logic
+    const statusEl = document.getElementById("status");
+    const delayEl = document.getElementById("delay");
+
+    if (id.endsWith("5")) {
+        statusEl.innerHTML = "Pending";
+        statusEl.className = "status-pending";
+        delayEl.innerText = "No";
+    } else {
+        statusEl.innerHTML = "Resolved";
+        statusEl.className = "status-resolved";
+        delayEl.innerText = "No";
+    }
+}
+
+function goHome() {
+    alert("Redirect to Home page");
+}
+</script>
+
+</body>
+</html>

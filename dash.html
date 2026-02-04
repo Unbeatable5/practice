@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Authority Dashboard | CivicSense</title>
+  <link rel="stylesheet" href="dash.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="nav-left">
+    <span class="brand">CivicSense</span>
+    <a href="#">Home</a>
+    <a href="#">View Complaints</a>
+  </div>
+</header>
+
+<section class="page-title">
+  <h1>Authority Dashboard</h1>
+</section>
+
+<main class="dashboard">
+
+  <!-- STATS -->
+  <section class="stats">
+    <div class="card"><h4>Total Complaint</h4><h2>24</h2></div>
+    <div class="card"><h4>Pending</h4><h2 class="yellow">9</h2></div>
+    <div class="card"><h4>High Priority</h4><h2 class="orange">6</h2></div>
+    <div class="card"><h4>Delayed</h4><h2 class="red">3</h2></div>
+  </section>
+
+  <!-- TABLE -->
+  <section class="table-box">
+
+    <!-- SEARCH -->
+    <div class="table-top">
+      <div class="search-left">
+        <div class="menu-icon">☰</div>
+        <input type="text" placeholder="Search...">
+      </div>
+    </div>
+
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th class="narrow"></th>
+            <th>#</th>
+            <th>Complaint ID</th>
+            <th>Description</th>
+            <th>Status</th>
+            <th>Area</th>
+            <th>Deadline</th>
+            <th>Priority</th>
+          </tr>
+        </thead>
+        <tbody id="complaintTable"></tbody>
+      </table>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="table-footer">
+      <span>1–10 of 20</span>
+      <div class="footer-right">
+        <span>Rows per page:</span>
+        <select>
+          <option>10</option>
+          <option>20</option>
+        </select>
+        <button>◀</button>
+        <span>1/2</span>
+        <button>▶</button>
+      </div>
+    </div>
+
+  </section>
+</main>
+
+<script src="dash.js"></script>
+</body>
+</html>
